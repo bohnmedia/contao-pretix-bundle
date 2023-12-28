@@ -1,0 +1,2 @@
+parameters:
+    bohnmedia_pretix.api_endpoint: "https://pretix.eu/api/v1"

@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  BohnMedia\ContaoPretixBundle\:
+    resource: "../src/{FrontendModule,EventListener}/*"
+
+  BohnMedia\ContaoPretixBundle\PretixApi:
+    arguments:
+      $endpoint: "%bohnmedia_pretix.api_endpoint%"

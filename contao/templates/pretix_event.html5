@@ -1,0 +1,7 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+    <time><?= $this->date_from_datim ?></time>
+    <h2><?= $this->name_local ?></h2>
+    <div class="location"><?= $this->location_local ?></div>
+<?php $this->endblock(); ?>
