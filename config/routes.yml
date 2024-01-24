@@ -1,0 +1,3 @@
+pretix:
+    resource: ../src/Route
+    type: annotation

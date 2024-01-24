@@ -6,6 +6,12 @@ services:
   BohnMedia\ContaoPretixBundle\:
     resource: "../src/{FrontendModule,EventListener}/*"
 
+  BohnMedia\ContaoPretixBundle\Route\:
+    resource: "../src/Route/*"
+    tags: ["controller.service_arguments"]
+
   BohnMedia\ContaoPretixBundle\PretixApi:
+    public: true
     arguments:
       $endpoint: "%bohnmedia_pretix.api_endpoint%"
+      $contaoFramework: '@contao.framework'

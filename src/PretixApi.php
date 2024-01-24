@@ -3,15 +3,18 @@
 namespace BohnMedia\ContaoPretixBundle;
 
 use Contao\Config;
+use Contao\CoreBundle\Framework\ContaoFramework;
 
 class PretixApi
 {
     private $endpoint;
+    private $contaoFramework;
     private $apiToken;
 
-    public function __construct(string $endpoint)
+    public function __construct(string $endpoint, ContaoFramework $contaoFramework)
     {
         $this->endpoint = $endpoint;
+        $this->contaoFramework = $contaoFramework;
         $this->apiToken = $this->getApiToken();
     }
 
@@ -45,6 +48,11 @@ class PretixApi
 
     private function getApiToken(): string
     {
+        // Initialize Contao framework
+        if (!$this->contaoFramework->isInitialized()) {
+            $this->contaoFramework->initialize();
+        }
+
         return Config::get('pretixApiToken');
     }
 }

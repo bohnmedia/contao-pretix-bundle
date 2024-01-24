@@ -34,7 +34,7 @@ class PretixListController extends AbstractFrontendModuleController
         if ($nextEvents !== null) {
             foreach ($nextEvents->results as $event) {
                 $eventTemplate = new FrontendTemplate('pretix_event');
-                $eventTemplate->class = 'pretix_event';
+                $eventTemplate->class = 'event';
 
                 foreach (get_object_vars($event) as $key => $value) {
                     $eventTemplate->$key = $value;
